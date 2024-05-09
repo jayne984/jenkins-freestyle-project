@@ -1,11 +1,13 @@
-Pipeline{
+pipeline{
   agent any
   stages{
-    stage("run script"){
+    stage('Make Directory'){
       steps{
-        sh 'chmod +x ./example.sh'
-        sh './example.sh'
+        sh "mkdir ~/jenkins-tutorial-test"
       }
     }
-  }
+  stage('Make Files'){
+    steps{
+      sh "touch ~/jenkins-tutorial-test/file1 ~/jenkins-tutorial-test/file2"
+  } 
 }
